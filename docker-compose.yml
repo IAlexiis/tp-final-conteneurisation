@@ -1,0 +1,47 @@
+services:
+  db:
+    image: mysql:8
+    container_name: task_db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: taskdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - internal
+
+  app:
+    build: ./app
+    container_name: task_app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: taskdb
+    networks:
+      - internal
+
+  web:
+    image: nginx:latest
+    container_name: task_web
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./frontend:/usr/share/nginx/html
+    depends_on:
+      - app
+    networks:
+      - internal
+      - external
+
+networks:
+  internal:
+  external:
+
+volumes:
+  db_data:

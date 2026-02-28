@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container home">
+    <h1>TaskFlow</h1>
+    <p class="subtitle">Gestionnaire de tâches</p>
+
+    <form id="taskForm" class="add-form">
+      <input type="text" id="taskTitle" placeholder="Ajouter une tâche..." required autocomplete="off">
+      <button type="submit" class="btn btn-add">Ajouter</button>
+    </form>
+    <div id="toast" class="toast hidden"></div>
+
+    <a href="tasks.html" class="btn btn-tasks">Voir mes tâches</a>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

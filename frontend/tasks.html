@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Mes tâches</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="tasks-header">
+      <a href="index.html" class="back-link">&larr; Retour</a>
+      <h1>Mes tâches</h1>
+      <span id="taskCount" class="task-count"></span>
+    </div>
+
+    <div id="emptyState" class="empty-state hidden">
+      <p>Aucune tâche pour le moment.</p>
+      <a href="index.html" class="btn btn-add">Ajouter une tâche</a>
+    </div>
+
+    <ul id="taskList" class="task-list"></ul>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
